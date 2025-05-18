@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useRef } from 'react'
 import { Button } from './ui/Button'
 
 interface Treatment {
@@ -85,48 +88,135 @@ const treatments: Treatment[] = [
 ]
 
 export function Treatments() {
+  const [selectedCategory, setSelectedCategory] = useState('Facials')
   const categories = Array.from(new Set(treatments.map(t => t.category)))
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  const filteredTreatments = treatments.filter(
+    (treatment) => treatment.category === selectedCategory
+  )
+
+  const scrollPrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1)
+    } else {
+      setCurrentIndex(filteredTreatments.length - 1)
+    }
+  }
+
+  const scrollNext = () => {
+    if (currentIndex < filteredTreatments.length - 1) {
+      setCurrentIndex(prev => prev + 1)
+    } else {
+      setCurrentIndex(0)
+    }
+  }
 
   return (
-    <div className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <div className="py-24 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center">
-          <h2 className="text-3xl font-extrabold text-[#182D20] sm:text-4xl">
+          <h2 className="text-4xl font-extrabold text-[#182D20] sm:text-5xl">
             Our Treatments
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-6 text-xl text-gray-600">
             Discover our range of premium aesthetic services designed to rejuvenate and enhance your natural beauty.
           </p>
         </div>
 
-        <div className="mt-16">
+        {/* Category Navigation */}
+        <div className="mt-12 flex justify-center space-x-4 overflow-x-auto pb-4">
           {categories.map((category) => (
-            <div key={category} className="mb-16">
-              <h3 className="text-2xl font-bold text-[#182D20] mb-8">{category}</h3>
-              <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-                {treatments
-                  .filter((treatment) => treatment.category === category)
-                  .map((treatment) => (
-                    <div
-                      key={treatment.name}
-                      className="bg-white p-6 rounded-lg shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
-                    >
-                      <h4 className="text-xl font-semibold text-[#182D20] mb-4">
-                        {treatment.name}
-                      </h4>
-                      <p className="text-gray-600 mb-6">
-                        {treatment.description}
-                      </p>
-                      <Button
-                        className="bg-[#182D20] text-white hover:bg-[#2A4A30] transition-colors duration-300"
-                      >
-                        Book Now
-                      </Button>
-                    </div>
-                  ))}
-              </div>
-            </div>
+            <Button
+              key={category}
+              variant="shimmer"
+              onClick={() => {
+                setSelectedCategory(category)
+                setCurrentIndex(0)
+              }}
+              className={`text-lg whitespace-nowrap ${
+                selectedCategory === category
+                  ? 'scale-105 shadow-lg'
+                  : 'opacity-90 hover:opacity-100'
+              }`}
+            >
+              {category}
+            </Button>
           ))}
+        </div>
+
+        {/* Carousel */}
+        <div className="mt-12 relative">
+          <div 
+            ref={containerRef}
+            className="overflow-hidden"
+          >
+            <div 
+              className="grid grid-flow-col auto-cols-[100%] transition-transform duration-500 ease-out"
+              style={{
+                transform: `translateX(-${currentIndex * 100}%)`
+              }}
+            >
+              {filteredTreatments.map((treatment) => (
+                <div
+                  key={treatment.name}
+                  className="px-4"
+                >
+                  <div className="bg-white p-8 rounded-lg border-[0.5px] border-gray-100 transition-all duration-300 mx-auto max-w-2xl">
+                    <h4 className="text-2xl font-semibold text-[#182D20] mb-4">
+                      {treatment.name}
+                    </h4>
+                    <p className="text-gray-600 mb-6 text-lg">
+                      {treatment.description}
+                    </p>
+                    <Button
+                      variant="shimmer"
+                      className="w-full text-lg py-3"
+                    >
+                      Book Now
+                    </Button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Navigation Buttons */}
+          <Button
+            variant="shimmer"
+            onClick={scrollPrev}
+            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 rounded-full p-3 min-w-[48px] h-[48px] flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </Button>
+          
+          <Button
+            variant="shimmer"
+            onClick={scrollNext}
+            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 rounded-full p-3 min-w-[48px] h-[48px] flex items-center justify-center"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Button>
+
+          {/* Dots Navigation */}
+          <div className="flex justify-center mt-8 gap-2">
+            {filteredTreatments.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  currentIndex === index 
+                    ? 'bg-[#182D20] scale-110' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>

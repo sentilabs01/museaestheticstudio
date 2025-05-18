@@ -8,7 +8,7 @@ export default function Logo() {
         loop
         muted
         playsInline
-        className="w-full max-w-2xl h-auto"
+        className="w-full max-w-md h-auto"
       >
         <source src="/LOGOMP4.mp4" type="video/mp4" />
         Your browser does not support the video tag.

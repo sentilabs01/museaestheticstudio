@@ -1,5 +1,5 @@
 // import Image from "next/image";
-import dynamic from "next/dynamic";
+// import dynamic from "next/dynamic";
 // import Hero from "../components/sections/Hero";
 // import { Treatments } from "../components/Treatments";
 import Products from "../components/sections/Products";

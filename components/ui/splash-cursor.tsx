@@ -247,14 +247,18 @@ export function SplashCursor({
       setKeywords(keywords: string[]) {
         let hash = 0;
         for (let i = 0; i < keywords.length; i++) hash += hashCode(keywords[i]);
-        const program = this.programs[hash];
+        let program = this.programs[hash];
         if (!program) {
           const fragmentShader = compileShader(
             gl.FRAGMENT_SHADER,
             this.fragmentShaderSource,
             keywords
           );
-          const program = createProgram(this.vertexShader, fragmentShader);
+          program = createProgram(this.vertexShader, fragmentShader);
+          if (!program) {
+            console.error("Material.setKeywords: Failed to create program", this.vertexShader, fragmentShader);
+            throw new Error("Material.setKeywords: Failed to create program");
+          }
           this.programs[hash] = program;
         }
         if (program === this.activeProgram) return;
@@ -285,12 +289,19 @@ export function SplashCursor({
       gl.attachShader(program, vertexShader);
       gl.attachShader(program, fragmentShader);
       gl.linkProgram(program);
-      if (!gl.getProgramParameter(program, gl.LINK_STATUS))
-        console.trace(gl.getProgramInfoLog(program));
+      if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
+        const info = gl.getProgramInfoLog(program);
+        console.error('WebGL program failed to link:', info);
+        throw new Error('WebGL program failed to link: ' + info);
+      }
       return program;
     }
 
     function getUniforms(program: WebGLProgram): Record<string, WebGLUniformLocation | null> {
+      if (!program) {
+        console.error("getUniforms called with invalid program:", program);
+        throw new Error("getUniforms called with invalid program");
+      }
       const uniforms: Record<string, WebGLUniformLocation | null> = {};
       const uniformCount = gl.getProgramParameter(program, gl.ACTIVE_UNIFORMS);
       for (let i = 0; i < uniformCount; i++) {
@@ -311,8 +322,9 @@ export function SplashCursor({
       gl.shaderSource(shader, source);
       gl.compileShader(shader);
       if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.trace(gl.getShaderInfoLog(shader));
-        throw new Error('Shader compilation failed');
+        const info = gl.getShaderInfoLog(shader);
+        console.error('WebGL shader failed to compile:', info, '\nSource:', source);
+        throw new Error('WebGL shader failed to compile: ' + info);
       }
       return shader;
     }

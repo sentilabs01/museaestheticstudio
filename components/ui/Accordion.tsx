@@ -13,7 +13,10 @@ export default function Accordion({ title, content }: AccordionProps) {
   return (
     <div className="mb-4">
       <button
-        className="flex w-full items-center justify-between rounded-lg bg-gray-50 p-4 text-left font-medium text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700"
+        className={`flex w-full items-center justify-between rounded-lg p-4 text-left font-medium transition-all shadow-md border-2 focus:outline-none
+          ${isOpen ? 'bg-[#182d20] text-white border-[#182d20]' : 'bg-white text-[#182d20] border-[#182d20] hover:bg-[#2A4A30] hover:text-white'}
+        `}
+        style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 700 }}
         onClick={() => setIsOpen(!isOpen)}
       >
         <span>{title}</span>

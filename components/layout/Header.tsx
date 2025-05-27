@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import { ThemeToggle } from '../ThemeToggle'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -15,51 +15,62 @@ export default function Header() {
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-sm">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex-1 flex items-center justify-between">
             <div className="hidden sm:block">
               <div className="flex space-x-8">
                 <button
-                  onClick={() => scrollToSection('treatments')}
-                  className="text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-sm font-medium"
+                  onClick={() => scrollToSection('pricing')}
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
                   Treatments
                 </button>
                 <button
                   onClick={() => scrollToSection('products')}
-                  className="text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-sm font-medium"
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
-                  Products
+                  Featured Products
                 </button>
                 <button
                   onClick={() => scrollToSection('pricing')}
-                  className="text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-sm font-medium"
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
                   Pricing
                 </button>
                 <button
                   onClick={() => scrollToSection('mission')}
-                  className="text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-sm font-medium"
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
                   Mission
                 </button>
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-sm font-medium"
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
                   Contact
+                </button>
+                <button
+                  onClick={() => scrollToSection('policies')}
+                  className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
+                >
+                  Policies
                 </button>
               </div>
             </div>
           </div>
 
+          {/* Theme Toggle */}
+          <div className="ml-4">
+            <ThemeToggle />
+          </div>
+
           {/* Mobile menu button */}
-          <div className="sm:hidden">
+          <div className="sm:hidden ml-4">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="inline-flex items-center justify-center p-2 rounded-md text-[#182D20]"
+              className="inline-flex items-center justify-center p-2 rounded-md text-[#182D20] dark:text-gray-200"
             >
               <span className="sr-only">Open main menu</span>
               {!isMenuOpen ? (
@@ -80,34 +91,40 @@ export default function Header() {
           <div className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
-                onClick={() => scrollToSection('treatments')}
-                className="block text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-base font-medium"
+                onClick={() => scrollToSection('pricing')}
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
                 Treatments
               </button>
               <button
                 onClick={() => scrollToSection('products')}
-                className="block text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-base font-medium"
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
-                Products
+                Featured Products
               </button>
               <button
                 onClick={() => scrollToSection('pricing')}
-                className="block text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-base font-medium"
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
                 Pricing
               </button>
               <button
                 onClick={() => scrollToSection('mission')}
-                className="block text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-base font-medium"
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
                 Mission
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="block text-[#182D20] hover:text-[#2A4A30] px-3 py-2 text-base font-medium"
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
                 Contact
+              </button>
+              <button
+                onClick={() => scrollToSection('policies')}
+                className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
+              >
+                Policies
               </button>
             </div>
           </div>

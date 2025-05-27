@@ -35,12 +35,13 @@ export default function ScrollTopButton() {
   return (
     <button
       onClick={scrollToTop}
-      className="rounded-full bg-black p-3 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+      className="rounded-full bg-[#182d20] p-3 text-white shadow-lg transition-colors hover:bg-[#2A4A30]"
+      style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 700 }}
       aria-label="Scroll to top"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className="h-5 w-5"
+        className="h-5 w-5 text-white"
         viewBox="0 0 20 20"
         fill="currentColor"
       >

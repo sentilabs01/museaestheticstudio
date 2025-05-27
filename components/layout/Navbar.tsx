@@ -2,9 +2,10 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/treatments", label: "Treatments" },
-  { href: "/products", label: "Products" },
+  { href: "/products", label: "Featured Products" },
   { href: "/pricing", label: "Pricing" },
   { href: "/contact", label: "Contact" },
+  { href: "#policies", label: "Policies" },
   { href: "/booking", label: "Book Now" },
 ];
 
@@ -17,14 +18,14 @@ export default function Navbar() {
             {item.label === "Book Now" ? (
               <Link
                 href={item.href}
-                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
               >
                 {item.label}
               </Link>
             ) : (
               <Link
                 href={item.href}
-                className="text-gray-600 transition-colors hover:text-black dark:text-gray-300 dark:hover:text-white"
+                className="text-neutral-600 transition-colors hover:text-black dark:text-neutral-300 dark:hover:text-white"
               >
                 {item.label}
               </Link>

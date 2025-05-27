@@ -3,7 +3,7 @@
 import * as React from "react"
 import { type PricingTier } from "@/components/ui/pricing-card"
 import { Tab } from "@/components/ui/pricing-tab"
-import { Button } from '../ui/button'
+import { Button } from "@/components/ui/button"
 
 interface PricingSectionProps {
   title: string

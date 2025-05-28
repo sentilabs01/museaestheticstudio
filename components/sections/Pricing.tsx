@@ -9,8 +9,8 @@ const membershipPlans = [
   {
     name: 'LASH BABE',
     price: '$65/MONTH',
+    subheading: 'LASH LIFT & BROW LAMINATION',
     benefits: [
-      'LASH LIFT & BROW LAMINATION',
       'TREATED EVERY 6 TO 8 WEEKS',
       'BROW WAX & SHAPE',
       'SCHEDULED OPPOSITE LASH/BROW TREATMENTS',
@@ -21,8 +21,8 @@ const membershipPlans = [
   {
     name: 'EXPRESS',
     price: '$120/MONTH',
+    subheading: 'BASIC FACIAL SERVICE, INCLUDES:',
     benefits: [
-      'BASIC FACIAL SERVICE, INCLUDES:',
       'MICRODERMABRASION OR DERMAPLANING + ENZYME THERAPY, EXTRACTIONS & LED LIGHT',
       '$30 CHEMICAL PEEL UPGRADE',
       '10% OFF SKIN TREATMENTS',
@@ -32,9 +32,8 @@ const membershipPlans = [
   {
     name: 'SIGNATURE MUSE',
     price: '$145/MONTH',
+    subheading: 'DERMAPLANE + 1 ADVANCED TREATMENT',
     benefits: [
-      'DERMAPLANE + 1 ADVANCED TREATMENT',
-      'ADVANCED TREATMENT INCLUDES:',
       'MICRODERMABRASION + ENZYME THERAPY',
       'CHEMICAL PEEL',
       'DELUXE FACIAL CUPPING TREATMENT',
@@ -252,7 +251,7 @@ export default function Pricing() {
                   key={plan.name}
                   tier={plan.name}
                   price={plan.price}
-                  bestFor={plan.benefits[0]}
+                  bestFor={plan.subheading}
                   benefits={plan.benefits.map(b => ({ text: b, checked: true }))}
                   className={''}
                 />

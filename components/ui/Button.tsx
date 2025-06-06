@@ -1,37 +1,58 @@
-import { cn } from "@/lib/utils"
-import { ButtonHTMLAttributes, forwardRef } from "react"
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'default' | 'outline' | 'shimmer'
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-[#182d20] text-white hover:bg-[#2A4A30] shadow-lg border-2 border-[#182d20] font-bold",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+        shimmer: "bg-gradient-to-r from-pink-400 via-pink-200 to-blue-400 text-white shadow-lg hover:from-pink-500 hover:to-blue-500",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'default', ...props }, ref) => {
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
     return (
-      <button
-        className={cn(
-          "relative inline-flex items-center justify-center overflow-hidden rounded-lg px-6 py-3 font-medium transition-all duration-300",
-          variant === 'default' && "bg-[#182D20] text-white hover:bg-[#2A4A30]",
-          variant === 'outline' && "border-2 border-[#182D20] text-[#182D20] hover:bg-[#182D20] hover:text-white",
-          variant === 'shimmer' && `
-            bg-gradient-to-r from-[#182D20] via-[#182D20] to-[#182D20]
-            before:absolute before:inset-0
-            before:bg-gradient-to-r before:from-transparent before:via-[#FFD700]/20 before:to-transparent
-            before:translate-x-[-200%] hover:before:translate-x-[200%] before:transition-transform before:duration-[1.5s]
-            after:absolute after:inset-0
-            after:bg-gradient-to-r after:from-transparent after:via-[#FF69B4]/20 after:to-transparent
-            after:translate-x-[-200%] hover:after:translate-x-[200%] after:transition-transform after:duration-[2s]
-            text-white
-          `,
-          className
-        )}
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }), 'font-ttdrugs')}
+        style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 700 }}
         ref={ref}
         {...props}
       />
     )
-  }
+  },
 )
-
 Button.displayName = "Button"
 
-export { Button } 
+export { Button, buttonVariants } 

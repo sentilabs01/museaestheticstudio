@@ -18,39 +18,14 @@ export default function Policies() {
       ),
     },
     {
-      title: "Pre-Paid Services Expiration",
-      content: (
-        <span>
-          All pre-paid services have a <b>1-year expiration</b> from the date of purchase. We encourage you to schedule your treatments within this timeframe to fully enjoy your benefits.<br /><br />
-          <b>Disclosure:</b> Expired pre-paid services are non-refundable and cannot be redeemed or transferred. Clients will be notified 30 days prior to expiration as a courtesy, but it is the client's responsibility to schedule services within the 1-year period.
-        </span>
-      ),
+      title: "Refund Policy",
+      content:
+        "We strive for your complete satisfaction. If you're not happy with our services, please let us know within 7 days and we'll work to make it right.",
     },
     {
-      title: "Missed Membership Treatments",
-      content: (
-        <span>
-          If a member misses a month of treatment, there is a <b>30-day grace period</b> to schedule a make-up session. Please contact us promptly to reschedule within this window to avoid forfeiting the session.
-        </span>
-      ),
-    },
-    {
-      title: "Consultation & Good Faith Exam Requirement",
-      content: (
-        <span>
-          All new clients (excluding lash service clients) are required to have an initial consultation prior to receiving services. For all medical services, clients must also complete a <b>"Good Faith Exam"</b> with our Medical Director, FNP Megan "Josie" Burgmaier prior to treatment. This ensures your safety, compliance with medical standards, and allows us to tailor treatments to your unique needs for the best possible experience.<br /><br />
-          <b>Disclosure:</b> The initial consultation is mandatory to assess skin conditions and medical history. The Good Faith Exam is a legal requirement for medical treatments like microneedling, dermaplaning, or peels. Failure to complete the consultation or exam may result in delayed or canceled services without refund. If a client is deemed unsuitable for treatment based on the exam, no service will be provided, and pre-paid fees may be credited toward alternative services at our discretion. Consultations are complimentary but require scheduling in advance.
-        </span>
-      ),
-    },
-    {
-      title: "Right to Refuse Service",
-      content: (
-        <span>
-          Muse Aesthetic Studio reserves the right to refuse service to any client at our discretion, ensuring a safe and respectful environment for our staff and other clients.<br /><br />
-          <b>Disclosure:</b> Service may be refused due to inappropriate behavior, non-compliance with health and safety protocols, or conditions that pose a risk to staff or clients. No refunds will be issued for services denied under this policy, and clients may be asked to leave the premises.
-        </span>
-      ),
+      title: "Late Arrival Policy",
+      content:
+        "If you arrive late, your session may need to be shortened to accommodate other scheduled appointments. Full service fees will still apply.",
     },
   ];
 

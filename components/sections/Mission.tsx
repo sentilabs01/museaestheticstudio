@@ -1,5 +1,3 @@
-import Image from 'next/image'
-
 export default function Mission() {
   return (
     <section id="mission" className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-pink-100 to-[#e0f7fa] dark:from-black dark:via-pink-200 dark:to-[#181823] border-b-2 border-pink-300 shadow-md">

@@ -23,11 +23,9 @@ export default function Navbar() {
         {navItems.map((item) => (
           <li key={item.href}>
             {item.label === "Book Now" ? (
-              <a
-                href="https://www.vagaro.com/museaestheticstudio/book-now"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+              <Link
+                href={item.href}
+                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
               >
                 {item.label}
               </a>

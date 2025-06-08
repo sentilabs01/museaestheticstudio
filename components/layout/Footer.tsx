@@ -1,27 +1,6 @@
 'use client'
 
-import { useState } from 'react'
-import Script from 'next/script'
-import SocialLink from "../ui/SocialLink";
-import ContactItem from "../ui/ContactItem";
-import ScrollTopButton from "./ScrollTopButton";
-
 export default function Footer() {
-  const socialLinks = [
-    { platform: "Facebook", url: "https://facebook.com", icon: "facebook" },
-    { platform: "Instagram", url: "https://instagram.com", icon: "instagram" },
-    { platform: "Twitter", url: "https://twitter.com", icon: "twitter" },
-  ];
-
-  const contactInfo: Array<{
-    type: "email" | "phone" | "address";
-    value: string;
-  }> = [
-    { type: "email", value: "contact@example.com" },
-    { type: "phone", value: "+1 (555) 123-4567" },
-    { type: "address", value: "123 Main St, City, State 12345" },
-  ];
-
   return (
     <footer id="contact" className="bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-800">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
@@ -43,10 +22,8 @@ export default function Footer() {
 
               {/* Hours */}
               <div>
-                <h3 className="text-lg font-semibold text-[#182D20] dark:text-neutral-200 mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
-                  Hours of Operation
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
+                <h3 className="text-lg font-semibold text-[#182D20] mb-4">Hours of Operation</h3>
+                <div className="space-y-2 text-gray-600">
                   <div className="flex justify-between">
                     <span>Monday - Friday</span>
                     <span>9:00 AM - 7:00 PM</span>
@@ -94,21 +71,24 @@ export default function Footer() {
           </div>
 
           {/* Right Column: Contact Form */}
-          <div className="bg-neutral-50 dark:bg-black/40 p-8 rounded-lg shadow-lg">
-            <div style={{ width: '100%', maxWidth: 700, height: 500, position: 'relative' }}>
-              <iframe
-                width="100%"
-                height="500px"
-                src="https://forms.vagaro.com/FormResponse/gSyKI6gW2pZiDB7s3DpSrx3zbekJA6aO5Zn2LByZCosW?embeded=true"
-                style={{ position: 'absolute', top: 0, bottom: 0, left: 0, right: 0 }}
-                frameBorder={0}
-                marginWidth={0}
-                marginHeight={0}
-                title="Vagaro Contact Us Form"
-              >
-                Loading...
-              </iframe>
-            </div>
+          <div className="bg-white rounded-lg shadow-lg p-4">
+            <h3 className="text-lg font-semibold text-[#182D20] mb-4">Send us a Message</h3>
+            <iframe
+              id="JotFormIFrame-251028288630153"
+              title="Contact Form"
+              allowFullScreen={true}
+              allow="geolocation; microphone; camera"
+              src="https://form.jotform.com/251028288630153"
+              frameBorder="0"
+              style={{
+                minWidth: '100%',
+                height: '539px',
+                border: 'none',
+                background: 'transparent',
+                opacity: 1
+              }}
+              scrolling="no"
+            />
           </div>
         </div>
 

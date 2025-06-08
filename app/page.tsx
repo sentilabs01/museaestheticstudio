@@ -1,12 +1,11 @@
-// import Image from "next/image";
+import Image from "next/image";
 import { SplashCursor } from "../components/ui/splash-cursor";
-// import Hero from "../components/sections/Hero";
-// import { Treatments } from "../components/Treatments";
+import Hero from "../components/sections/Hero";
+import { Treatments } from "../components/Treatments";
 import Products from "../components/sections/Products";
 import Pricing from "../components/sections/Pricing";
 import Mission from "../components/sections/Mission";
 import Logo from "../components/sections/Logo";
-import Policies from "../components/sections/Policies";
 
 // NoiseDemo component for SplashCursor
 // export function NoiseDemo() {
@@ -15,7 +14,7 @@ import Policies from "../components/sections/Policies";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white dark:bg-black relative">
+    <main className="min-h-screen bg-white relative">
       <SplashCursor />
       <Logo />
       <Mission />

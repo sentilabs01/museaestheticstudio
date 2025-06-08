@@ -21,8 +21,8 @@ export default function Booking() {
               }
             }}
           >
-            Book Now
-          </Button>
+            Schedule Now
+          </button>
         </div>
       </div>
     </section>

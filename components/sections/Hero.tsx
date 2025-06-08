@@ -1,12 +1,3 @@
-// @ts-ignore
-declare global {
-  interface Window {
-    Vagaro?: any;
-  }
-}
-
-import { Button } from "../ui/button";
-
 export default function Hero() {
   return (
     <section className="relative flex min-h-screen items-center justify-center bg-gradient-to-b from-transparent to-gray-50 px-4 py-32 dark:to-gray-900">
@@ -18,24 +9,22 @@ export default function Hero() {
           </span>
         </h1>
         <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-600 dark:text-gray-400 sm:text-xl">
-          Experience excellence in every service. We're dedicated to providing
+          Experience excellence in every service. We&apos;re dedicated to providing
           top-quality care and exceptional results for all our clients.
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <Button
-            onClick={() => {
-              if (window.Vagaro && typeof window.Vagaro.WidgetPopup === 'function') {
-                window.Vagaro.WidgetPopup();
-              } else {
-                window.open('https://www.vagaro.com/museaestheticstudio/book-now', '_blank');
-              }
-            }}
+          <a
+            href="/booking"
+            className="rounded-full bg-black px-8 py-3 text-lg font-medium text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
           >
             Book Now
-          </Button>
-          <Button asChild variant="outline">
-            <a href="/treatments">View Services</a>
-          </Button>
+          </a>
+          <a
+            href="/treatments"
+            className="rounded-full border border-black/10 px-8 py-3 text-lg font-medium transition-colors hover:bg-gray-100 dark:border-white/20 dark:hover:bg-gray-800"
+          >
+            View Services
+          </a>
         </div>
       </div>
     </section>

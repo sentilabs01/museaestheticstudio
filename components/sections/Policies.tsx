@@ -35,20 +35,11 @@ export default function Policies() {
       ),
     },
     {
-      title: "Good Faith Exam for Medical Services",
+      title: "Consultation & Good Faith Exam Requirement",
       content: (
         <span>
-          For all medical services, clients must complete a <b>"Good Faith Exam"</b> with our Medical Director prior to treatment. This ensures your safety and compliance with medical standards.<br /><br />
-          <b>Disclosure:</b> The Good Faith Exam is a legal requirement for medical treatments like microneedling, dermaplaning or peels. If a client is deemed unsuitable for treatment based on the exam, no service will be provided, and pre-paid fees may be credited toward alternative services at our discretion.
-        </span>
-      ),
-    },
-    {
-      title: "Initial Consultation Requirement",
-      content: (
-        <span>
-          All new clients (excluding lash service clients) are required to have an initial consultation prior to receiving services. This helps us tailor treatments to your unique needs and ensures the best possible experience.<br /><br />
-          <b>Disclosure:</b> The initial consultation is mandatory to assess skin conditions and medical history. Failure to complete the consultation may result in delayed or canceled services without refund. Consultations are complimentary but require scheduling in advance.
+          All new clients (excluding lash service clients) are required to have an initial consultation prior to receiving services. For all medical services, clients must also complete a <b>"Good Faith Exam"</b> with our Medical Director, FNP Megan "Josie" Burgmaier prior to treatment. This ensures your safety, compliance with medical standards, and allows us to tailor treatments to your unique needs for the best possible experience.<br /><br />
+          <b>Disclosure:</b> The initial consultation is mandatory to assess skin conditions and medical history. The Good Faith Exam is a legal requirement for medical treatments like microneedling, dermaplaning, or peels. Failure to complete the consultation or exam may result in delayed or canceled services without refund. If a client is deemed unsuitable for treatment based on the exam, no service will be provided, and pre-paid fees may be credited toward alternative services at our discretion. Consultations are complimentary but require scheduling in advance.
         </span>
       ),
     },

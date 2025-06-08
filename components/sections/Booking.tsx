@@ -21,7 +21,7 @@ export default function Booking() {
               }
             }}
           >
-            Schedule Now
+            Book Now
           </Button>
         </div>
       </div>

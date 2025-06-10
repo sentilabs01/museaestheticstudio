@@ -38,7 +38,7 @@ export default function Policies() {
       title: "Good Faith Exam for Medical Services",
       content: (
         <span>
-          For all medical services, clients must complete a <b>&quot;Good Faith Exam&quot;</b> with our Medical Director prior to treatment. This ensures your safety and compliance with medical standards.<br /><br />
+          For all medical services, clients must complete a <b>"Good Faith Exam"</b> with our Medical Director, FNP Megan Josie Burgmaier prior to treatment. This ensures your safety and compliance with medical standards.<br /><br />
           <b>Disclosure:</b> The Good Faith Exam is a legal requirement for medical treatments like microneedling, dermaplaning or peels. If a client is deemed unsuitable for treatment based on the exam, no service will be provided, and pre-paid fees may be credited toward alternative services at our discretion.
         </span>
       ),

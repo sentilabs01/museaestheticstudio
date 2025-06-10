@@ -90,9 +90,11 @@ export function PricingSection({
         ))}
       </div>
       <div className="flex justify-center mt-8">
-        <Button className="px-8 py-2 text-lg" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 700 }} onClick={onBookNow}>
-          Book Now
-        </Button>
+        <a href="https://www.vagaro.com/Users/BusinessWidget.aspx?enc=MMLjhIwJMcwFQhXLL7ifVHHIe4vfztFt1+g9CYbIkaxBboDTZXi7B3oCX9H/YqJrrEeMBLTg5YWY9k8g80ksIASy7/mhAhdHH7G5iHleD8qYoQVaduXMdj/QfqvI8RyvCDW5VrpXuxLpY+rRBJWlzR4lMD7GUeCHTPqQnCTG17jqxGSEAR1MH2vqXopoaPC9vgpJyGMfDvQNAeMT6X+wfoKvqSB8w4yhQavu4Fo+kh98QLyoG4BpOfov5Bjx1A960Pi8fRO64hCRRyV1nVgkm2qoRAAENU5nrSHKwI9lMe/rNnPAds0lZHLtJ3A+M2xWPfXNd325JITqIN8QDmJGWYFDbzuAAq7cDwOVmPhSa/6uwoNZNtxcjpLBLQDzdTzh4mWJOJWvOLQqmJldpHYYkgQH3iQR3eFhcc2GaQLXaAQ=&c_type=tab" target="_blank" rel="noopener noreferrer">
+          <Button className="px-8 py-2 text-lg" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 700 }}>
+            Book Now
+          </Button>
+        </a>
       </div>
     </section>
   )

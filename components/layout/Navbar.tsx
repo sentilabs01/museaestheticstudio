@@ -1,10 +1,17 @@
 import Link from "next/link";
 
+// @ts-ignore
+declare global {
+  interface Window {
+    Vagaro?: any;
+  }
+}
+
 const navItems = [
   { href: "/treatments", label: "Treatments" },
   { href: "/products", label: "Featured Products" },
   { href: "/pricing", label: "Pricing" },
-  { href: "/contact", label: "Contact" },
+  { href: "#contact", label: "Contact" },
   { href: "#policies", label: "Policies" },
   { href: "/booking", label: "Book Now" },
 ];
@@ -18,10 +25,10 @@ export default function Navbar() {
             {item.label === "Book Now" ? (
               <Link
                 href={item.href}
-                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-neutral-800 dark:bg-white dark:text-black dark:hover:bg-neutral-200"
+                className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
               >
                 {item.label}
-              </Link>
+              </a>
             ) : (
               <Link
                 href={item.href}
@@ -35,4 +42,4 @@ export default function Navbar() {
       </ul>
     </nav>
   );
-} 
+}

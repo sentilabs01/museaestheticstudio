@@ -1,8 +1,9 @@
 'use client'
+import ContactFormEmbed from "../sections/ContactFormEmbed";
 
 export default function Footer() {
   return (
-    <footer id="contact" className="bg-white dark:bg-black border-t border-neutral-200 dark:border-neutral-800">
+    <footer id="contact" className="w-full bg-white dark:bg-black text-black dark:text-white pt-12 pb-6 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Left Column: Contact Info and Map */}
@@ -10,10 +11,10 @@ export default function Footer() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Location */}
               <div>
-                <h3 className="text-lg font-semibold text-[#182D20] dark:text-neutral-200 mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
+                <h3 className="text-lg font-semibold text-[#182D20] dark:text-[#F7D6ED] mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
                   Location
                 </h3>
-                <p className="text-neutral-600 dark:text-neutral-400">
+                <p className="text-[#2D4432] dark:text-gray-300">
                   Inside of Salon 12 Suites<br />
                   6828 NE 14th St, Suite 2<br />
                   Ankeny, IA 50023
@@ -21,29 +22,18 @@ export default function Footer() {
               </div>
 
               {/* Hours */}
-              <div>
-                <h3 className="text-lg font-semibold text-[#182D20] dark:text-neutral-200 mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
-                  By Appointment
-                </h3>
-                <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
-                  <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>9:00 AM - 7:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>10:00 AM - 5:00 PM</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>Closed</span>
-                  </div>
+              <div className="mt-4">
+                <div className="font-bold text-lg text-[#182D20] dark:text-[#F7D6ED] mb-2">
+                  Hours of Operation
+                </div>
+                <div className="text-[#2D4432] dark:text-gray-300">
+                  By appointment
                 </div>
               </div>
             </div>
 
             {/* Google Maps Embed */}
-            <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg">
+            <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg bg-[#F7D6ED] dark:bg-[#23272a]">
               <iframe
                 src="https://www.google.com/maps?q=6828+NE+14th+St,+Suite+2,+Ankeny,+IA+50023&output=embed"
                 width="100%"
@@ -52,54 +42,36 @@ export default function Footer() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="bg-neutral-100 dark:bg-black"
+                className="bg-[#F7D6ED] dark:bg-[#23272a]"
               />
             </div>
 
             {/* Contact Info */}
             <div>
-              <h3 className="text-lg font-semibold text-[#182D20] dark:text-neutral-200 mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
+              <h3 className="text-lg font-semibold text-[#182D20] dark:text-[#F7D6ED] mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
                 Contact Us
               </h3>
-              <div className="space-y-2 text-neutral-600 dark:text-neutral-400">
+              <div className="space-y-2 text-[#2D4432] dark:text-gray-300">
                 <p>
-                  Phone: <a href="tel:+15155189601" className="hover:text-[#182D20] dark:hover:text-neutral-200">(515) 518-9601</a>
+                  Phone: <a href="tel:+15155189601" className="hover:text-[#F7D6ED] dark:hover:text-[#F7D6ED]">(515) 518-9601</a>
                 </p>
                 <p>
-                  Email: <a href="mailto:info@museaestheticstudio.com" className="hover:text-[#182D20] dark:hover:text-neutral-200">info@museaestheticstudio.com</a>
+                  Email: <a href="mailto:info@museaestheticstudio.com" className="hover:text-[#F7D6ED] dark:hover:text-[#F7D6ED]">info@museaestheticstudio.com</a>
                 </p>
               </div>
             </div>
           </div>
-
-          {/* Right Column: Contact Form */}
-          <div className="bg-neutral-50 dark:bg-black/40 p-8 rounded-lg shadow-lg flex flex-col items-center">
-            <h3 className="text-2xl font-extrabold text-[#182D20] dark:text-neutral-200 mb-6" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800, WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale' }}>
-              Contact Us
-            </h3>
-            <div style={{ width: '100%', maxWidth: 700 }}>
-              <iframe
-                width="100%"
-                height="500px"
-                src="https://forms.vagaro.com/FormResponse/gSyKI6gW2pZiDB7s3DpSrx3zbekJA6aO5Zn2LByZCosW?embeded=true"
-                style={{ border: 'none', borderRadius: '1rem', background: 'white' }}
-                frameBorder="0"
-                marginWidth={0}
-                marginHeight={0}
-                title="Contact Form"
-              >
-                Loading...
-              </iframe>
-            </div>
+          {/* Right Column: Embedded Contact Form */}
+          <div className="flex items-start justify-center w-full">
+            <ContactFormEmbed />
           </div>
         </div>
-
-        <div className="mt-8 pt-8 border-t border-neutral-200">
-          <p className="text-center text-neutral-500">
+        <div className="mt-8 pt-8 border-t border-[#2D4432]">
+          <p className="text-center text-[#2D4432] dark:text-gray-400">
             © {new Date().getFullYear()} Muse Aesthetic Studio. All rights reserved.
           </p>
         </div>
       </div>
     </footer>
   );
-} 
+}

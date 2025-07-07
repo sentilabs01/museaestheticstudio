@@ -14,12 +14,15 @@ export default function Booking() {
           </p>
           <Button
             onClick={() => {
-              // Add your booking functionality here
-              alert("Booking functionality will be implemented soon!");
+              if (window.Vagaro && typeof window.Vagaro.WidgetPopup === 'function') {
+                window.Vagaro.WidgetPopup();
+              } else {
+                window.open('https://www.vagaro.com/museaestheticstudio/book-now', '_blank');
+              }
             }}
           >
             Schedule Now
-          </Button>
+          </button>
         </div>
       </div>
     </section>

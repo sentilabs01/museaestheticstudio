@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muse Aesthetic Studio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/animations.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* styles.css content */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: white;
+            color: #182D20;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            color: #182D20;
+            margin-bottom: 1rem;
+        }
+
+        h1 { font-size: 2.5rem; }
+        h2 { font-size: 2rem; }
+        h3 { font-size: 1.5rem; }
+
+        p { margin-bottom: 1rem; }
+
+        a { text-decoration: none; transition: all 0.3s ease; }
+
+        img { max-width: 100%; height: auto; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section { padding: 60px 0; }
+
+        /* Header */
+        header {
+            background-color: white;
+            padding: 20px 0;
+            position: relative;
+        }
+
+        .logo-container { text-align: center; margin-bottom: 20px; }
+
+        .logo-video { width: 300px; height: auto; margin: 0 auto; }
+
+        /* Navigation */
+        .navbar {
+            background-color: #182D20;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links { display: flex; list-style: none; }
+
+        .nav-links li { margin: 0 15px; }
+
+        .nav-links a {
+            color: white;
+            font-size: 1.1rem;
+            position: relative;
+        }
+
+        .nav-links a:hover { color: #F7D6ED; }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #F7D6ED;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        .book-now-btn {
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: 700;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .book-now-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+            transform: scale(1.05);
+        }
+
+        .hamburger { display: none; cursor: pointer; }
+
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: white;
+            border-top: 2px solid #F7D6ED;
+            border-bottom: 2px solid #F7D6ED;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #F7D6ED;
+            animation: fadeIn 2s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 { margin-bottom: 20px; }
+
+        .hero p { margin-bottom: 30px; font-size: 1.2rem; }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Treatments Section */
+        .treatments { background-color: white; }
+
+        .treatments-header { text-align: center; margin-bottom: 40px; }
+
+        .treatment-cards {
+            display: grid;
+            grid-template-columns:#s repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .treatment-card {
+            border: 2px solid #F7D6ED;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .treatment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .treatment-card-content {
+            padding: 20px;
+            background-color: white;
+        }
+
+        .treatment-card h3 { margin-bottom: 10px; display: flex; justify-content: space-between; }
+
+        .treatment-price { color: #182D20; font-weight: 700; }
+
+        .treatment-card p { margin-bottom: 20px; }
+
+        .treatment-card .book-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .treatment-card .book-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: white;
+            border-top: 2px solid #F7D6ED;
+            border-bottom: 2px solid #F7D6ED;
+        }
+
+        .pricing-header { text-align: center; margin-bottom: 40px; }
+
+        .pricing-toggle { display: flex; justify-content: center; margin-bottom: 30px; }
+
+        .toggle-btn {
+            background-color: #182D20;
+            color: white;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:first-child { border-radius: 5px 0 0 5px; }
+
+        .toggle-btn:last-child { border-radius: 0 5px 5px 0; }
+
+        .toggle-btn.active { background-color: #F7D6ED; color: #182D20; }
+
+        .pricing-content { max-width: 800px; margin: 0 auto; }
+
+        .pricing-table { display: none; }
+
+        .pricing-table.active { display: block; }
+
+        /* Products Section */
+        .products { background-color: white; }
+
+        .products-header { text-align: center; margin-bottom: 40px; }
+
+        .product-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .product-card {
+            border: 2px solid #F7D6ED;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-img {
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img video {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .product-content {
+            padding: 20px;
+            background-color: white;
+            text-align: center;
+        }
+
+        .product-card h3 { margin-bottom: 10px; display: flex; justify-content: space-between; }
+
+        .product-price { color: #182D20; font-weight: 700; }
+
+        .product-card p { margin-bottom: 20px; }
+
+        .product-card .buy-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .product-card .buy-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        /* Mission Section */
+        .mission {
+            position: relative;
+            padding: 80px 0;
+            text-align: center;
+            overflow: hidden;
+            border-top: 2px solid #F7D6ED;
+            border-bottom: 2px solid #F7D6ED;
+            background: white;
+        }
+
+        .sparkle-overlay {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #fff, 0 0 12px #f7d6ed;
+            animation: sparkleAnim 3s linear infinite;
+            opacity: 0;
+        }
+
+        .mission-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 10px;
+            border: 2px solid #F7D6ED;
+            position: relative;
+            z-index: 2;
+        }
+
+        .mission-image { max-width: 100%; height: auto; margin-bottom: 30px; }
+
+        /* Contact Section */
+        .contact { background-color: white; }
+
+        .contact-header { text-align: center; margin-bottom: 40px; }
+
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .contact-info { display: flex; flex-direction: column; }
+
+        .contact-item { margin-bottom: 20px; display: flex; align-items: flex-start; }
+
+        .contact-icon { margin-right: 15px; color: #182D20; font-size: 1.5rem; }
+
+        .contact-details h4 { margin-bottom: 5px; }
+
+        .contact-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid #F7D6ED;
+        }
+
+        /* Booking Section */
+        .booking {
+            background-color: #182D20;
+            color: white;
+            text-align: center;
+        }
+
+        .booking h2 { color: white; }
+
+        .booking-content { max-width: 800px; margin: 0 auto; }
+
+        .booking p { margin-bottom: 30px; font-size: 1.1rem; }
+
+        .booking-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 15px 40px;
+            border-radius: 5px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .booking-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Policies Section */
+        .policies { background-color: white; }
+
+        .policies-header { text-align: center; margin-bottom: 40px; }
+
+        .policies-container { max-width: 800px; margin: 0 auto; }
+
+        .policy-item {
+            margin-bottom: 20px;
+            border: 2px solid #F7D6ED;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .policy-header {
+            background-color: #182D20;
+            color: white;
+            padding: 15px 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .policy-header h3 {
+            margin: 0;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .policy-icon { transition: transform 0.3s ease; }
+
+        .policy-content {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+
+        .policy-content-inner { padding: 20px; }
+
+        .policy-item.active .policy-icon { transform: rotate(180deg); }
+
+        .policy-item.active .policy-content { max-height: 500px; }
+
+        /* Footer */
+        footer {
+            background-color: #182D20;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3rem;
+        }
+
+        .footer-links { list-style: none; }
+
+        .footer-links li { margin-bottom: 10px; }
+
+        .footer-links a { color: #ccc; transition: color 0.3s ease; }
+
+        .footer-links a:hover { color: #F7D6ED; }
+
+        .social-links { display: flex; gap: 15px; }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background-color: #F7D6ED;
+            transform: translateY(-3px);
+        }
+
+        .social-link svg {
+            width: 20px;
+            height: 20px;
+            fill: white;
+            transition: fill 0.3s ease;
+        }
+
+        .social-link:hover svg { fill: #182D20; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes shimmer {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes sparkleAnim {
+            0% { transform: scale(0.5) translateY(0); opacity: 1; }
+            100% { transform: scale(1.2) translateY(-100px); opacity: 0; }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .contact-content { grid-template-columns: 1fr; }
+            .contact-info { order: 2; }
+            .contact=form { order: 1; margin-bottom: 30px; }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.8rem; }
+            .logo-video { width: 200px; }
+            .nav-links {
+                position: absolute;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background-color: #182D20;
+                width: 100%;
+                text-align: center;
+                transition: all 0.3s ease;
+                box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            }
+            .nav-links.active { right: 0; }
+            .nav-links li { margin: 15px 0; }
+            .hamburger { display: block; }
+            .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            .hamburger.active div:nth-child(2) { opacity: 0; }
+            .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            .hero-content, .mission-content { padding: 30px 20px; }
+            .treatment-cards, .product-grid { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .social-links { justify-content: center; }
+        }
+
+        .mission-video { width: 100%; height: auto; object-fit: cover; }
+
+        /* Inline styles for accordion functionality */
+        .treatment-accordion, .policies-container {
+            margin-top: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .accordion-item, .policy-item {
+            border: 2px solid #F7D6ED;
+            border-radius: 5px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .accordion-header, .policy-header {
+            width: 100%;
+            padding: 15px 20px;
+            background: #182D20;
+            border: none;
+            text-align: left;
+            font-size: 1.2rem;
+            font-family: 'Playfair Display', serif;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .accordion-header:hover, .policy-header:hover { background: #2a4532; }
+
+        .accordion-header i, .policy-header i {
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .accordion-header.active i, .policy-header.active i { transform: rotate(180deg); }
+
+        .accordion-content, .policy-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background: white;
+        }
+
+        .accordion-content.active, .policy-content.active { padding: 20px; }
+
+        .treatment-item { margin-bottom: 1.5rem; }
+
+        .treatment-item h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.25rem;
+            color: #182D20;
+            margin: 0.5rem 0;
+        }
+
+        .treatment-item p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .treatment-item .book-btn {
+            display: inline-block;
+            background: linear-gradient(to right, #F7D6ED, #FFE4F3);
+            color: #182D20;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .treatment-item .book-btn:hover {
+            background: linear-gradient(45deg, #FFD700, #DAA520, #FFEC8B, #DAA520);
+            background-size: 200%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .policy-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            color: #666;
+            margin: 0.5rem 0;
+        }
+
+        .policy-content p strong { color: #182D20; }
+
+        .policy-content ul {
+            font-family: ' ..
+
+        /* Pop-up Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .modal-content {
+            position: relative;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border: 2px solid #F7D6ED;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content video {
+            max-width: 100%;
+            max-height: 80vh;
+            height: auto;
+            border-radius: 5px;
+            object-fit: contain;
+        }
+
+        .modal-content .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #182D20;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .modal-content .close-btn:hover { color: #F7D6ED; }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 20px;
+                max-width: 95%;
+            }
+            .modal-content .close-btn {
+                font-size: 1.5rem;
+                top: 10px;
+                right: 15px;
+            }
+            .modal-content video {
+                max-height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <video class="preloader-logo" autoplay loop muted playsinline>
+            <source src="assets/LOGOMP4.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Header with Animated Logo -->
+    <header>
+        <div class="logo-container">
+            <video class="logo-video" autoplay loop muted playsinline>
+                <source src="assets/LOGOMP4.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#mission">Our Mission</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="#policies">Policies</a></li>
+            </ul>
+            <a href="#booking" class="book-now-btn">Book Now</a>
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <img src="https://muse2025.s3.us-east-1.amazonaws.com/MuseWebBanner.svg" alt="Call Us" style="max-width: 100%; height: auto;">
+            </div>
+        </div>
+    </section>
+
+    <!-- Treatments Section -->
+    <section id="treatments" class="treatments">
+        <div class="container">
+            <div class="treatments-header">
+                <h2>Our Treatments</h2>
+                <p>Discover our range of premium aesthetic services designed to rejuvenate and enhance your natural beauty.</p>
+            </div>
+            
+            <div class="treatment-accordion">
+                <!-- Dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="pricing-header">
+                <h2>Our Pricing</h2>
+                <p>Transparent pricing for all our services with special rates for members.</p>
+            </div>
+            
+            <div class="pricing-toggle">
+                <div class="toggle-btn active" data-pricing="membership">Membership Pricing</div>
+                <div class="toggle-btn" data-pricing="standalone">Standalone Pricing</div>
+            </div>
+            
+            <div class="pricing-content">
+                <div class="pricing-table active" id="membership-pricing">
+                    <img src="https://muse2025.s3.us-east-1.amazonaws.com/WHITEBKG+MEMBERPRICE.png" alt="Membership Pricing">
+                </div>
+                <div class="pricing-table" id="standalone-pricing">
+                    <img src="https://muse2025.s3.us-east-1.amazonaws.com/standalone2.0.png" alt="Standalone Pricing">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="products-header">
+                <h2>Featured Products</h2>
+                <p>Enhance your skincare routine with our curated selection of premium products.</p>
+            </div>
+            
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <video autoplay loop muted playsinline class="product-video" data-modal="modal-video">
+                            <source src="https://muse2025.s3.us-east-1.amazonaws.com/product+slide+show.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section id="mission" class="mission">
+        <div class="sparkle-overlay" id="sparkles"></div>
+        <div class="container">
+            <div class="mission-content">
+                <img src="assets/Mission.png" alt="Our Mission" class="mission-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-header">
+                <h2>Contact Us</h2>
+                <p>Have questions or need assistance? We're here to help.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Location</h4>
+                            <p>Inside of Salon 12 Suites<br>6828 NE 14th St, Suite 2<br>Ankeny, IA 50023</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Phone</h4>
+                            <p>(515) 518-9601</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>info@museaestheticstudio.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 9am - 7pm<br>Saturday: 10am - 5pm<br>Sunday: Closed</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <iframe src="https://form.jotform.com/251028288630153" style="width:100%; height:500px; border:none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section id="booking" class="booking">
+        <div class="container">
+            <h2>Book Your Appointment</h2>
+            <div class="booking-content">
+                <p>Ready to experience the Muse difference? Schedule your appointment online and take the first step toward radiant, rejuvenated skin!</p>
+                <a href="#" class="booking-btn" id="vagaro-booking">Schedule Online</a>
+                <!-- Vagaro container will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Policies Section -->
+    <section id="policies" class="policies">
+        <div class="container">
+            <div class="policies-header">
+                <h2>Studio Policies</h2>
+                <p>Please review our policies to ensure a smooth and enjoyable experience.</p>
+            </div>
+            
+            <div class="policies-container">
+                <!-- Dynamically generated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#treatments">Treatments</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#mission">Our Mission</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#policies">Policies</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Treatments</h3>
+                    <ul class="footer-links">
+                        <li><a href="#treatments">Facials</a></li>
+                        <li><a href="#treatments">Peels</a></li>
+                        <li><a href="#treatments">Lash & Brow</a></li>
+                        <li><a href="#treatments">Packages</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Connect With Us</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://tiktok.com" target="_blank" class="social-link">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2025 Muse Aesthetic Studio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/vagaro-integration.js"></script>
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.querySelector('.preloader');
+            setTimeout(() => {
+                preloader.classList.add('hidden');
+            }, 1000);
+        });
+
+        // Scroll to top button
+        window.addEventListener('scroll', function() {
+            const scrollTopBtn = document.querySelector('.scroll-top');
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+
+        document.querySelector('.scroll-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Main JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation Toggle
+            const hamburger = document.querySelector('.hamburger');
+            const navLinks = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', function() {
+                    hamburger.classList.toggle('active');
+                    navLinks.classList.toggle('active');
+                });
+            }
+            
+            // Close mobile menu when clicking on a nav link
+            const navItems = document.querySelectorAll('.nav-links a');
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navLinks.classList.remove('active');
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 70,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Pricing Toggle
+            const pricingToggleButtons = document.querySelectorAll('.toggle-btn');
+            const pricingTables = document.querySelectorAll('.pricing-table');
+            
+            pricingToggleButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    pricingToggleButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const pricingType = this.getAttribute('data-pricing');
+                    
+                    pricingTables.forEach(table => {
+                        if (table.id === pricingType + '-pricing') {
+                            table.classList.add('active');
+                        } else {
+                            table.classList.remove('active');
+                        }
+                    });
+                });
+            });
+            
+            // Treatment Data
+            const treatments = [
+                {
+                    name: 'Express Facial',
+                    price: '$120',
+                    description: 'Short on time? Our Express Facial delivers a quick yet effective refresh. This 60-minute treatment includes a thorough cleanse, light exfoliation, and an enzyme mask, leaving your skin glowing and revitalized—ideal for a busy schedule.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Oxy-Facial with LED',
+                    price: '$135',
+                    description: 'Boost your skin\'s hydration with our Oxy-Facial, enhanced by LED light therapy. This treatment infuses your skin with oxygen and nourishing serums, while LED therapy targets concerns like redness or dullness, leaving your complexion radiant and refreshed.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Dermaplane Facial',
+                    price: '$135',
+                    description: 'Reveal smoother, brighter skin with our Dermaplane Facial. This treatment gently removes dead skin cells and peach fuzz through dermaplaning, followed by an enzyme mask. Perfect for a polished, glowing look.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Hydro-Facial with LED',
+                    price: '$145',
+                    description: 'Deeply cleanse and hydrate with our Hydro-Facial, featuring hydrodermabrasion to exfoliate and extract impurities, paired with LED light therapy to enhance skin clarity. This treatment leaves your skin plump, dewy, and rejuvenated.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Chemical Peel',
+                    price: '$99-$125',
+                    description: 'Address specific skin concerns with a customized Chemical Peel. This treatment exfoliates the outer layer of skin to improve texture, reduce pigmentation, and promote cell turnover. Pricing varies based on the peel intensity, tailored to your needs.',
+                    category: 'peels'
+                },
+                {
+                    name: 'Body Peel',
+                    price: '$99-$250',
+                    description: 'Extend the benefits of a chemical peel to your body. Our Body Peel targets areas like the back, arms, or legs to improve texture, reduce hyperpigmentation, and smooth rough skin. Pricing depends on the treatment area and peel strength.',
+                    category: 'peels'
+                },
+                {
+                    name: 'BioRePeel',
+                    price: '$150-$500',
+                    description: 'Experience the next level of skin rejuvenation with BioRePeel, a powerful yet gentle peel that combines exfoliation with biostimulation. This treatment reduces fine lines, improves skin tone, and enhances elasticity, with pricing based on the number of sessions and areas treated.',
+                    category: 'peels'
+                },
+                {
+                    name: 'Lash Lift & Tint',
+                    price: '$125',
+                    description: 'Enhance your natural lashes with our Lash Lift & Tint. This treatment lifts and curls your lashes for a wide-eyed look, while a tint adds depth and definition, eliminating the need for mascara. Enjoy long-lasting results for up to 6-8 weeks.',
+                    category: 'lash-brow'
+                },
+                {
+                    name: 'Brow Lamination',
+                    price: '$80',
+                    description: 'Achieve perfectly shaped brows with Brow Lamination. This treatment smooths and sets your brow hairs in place, creating a fuller, more defined look that lasts up to 6 weeks. Ideal for taming unruly brows or enhancing sparse ones.',
+                    category: 'lash-brow'
+                },
+                {
+                    name: 'Lash Lift & Tint with Brow Lamination',
+                    price: '$195',
+                    description: 'Combine the best of both worlds with our Lash Lift & Tint and Brow Lamination package. Lift and tint your lashes for a dramatic effect, while laminating your brows for a polished, sculpted look. Save time and enhance your features in one session.',
+                    category: 'lash-brow'
+                },
+                {
+                    name: 'Nano-Infusion Treatment',
+                    price: '$150-$500',
+                    description: 'Elevate your skincare with our Nano-Infusion Treatment, a cutting-edge procedure that uses nano-technology to deliver potent serums deep into the skin. This non-invasive treatment enhances hydration, improves fine lines, and boosts overall skin health, with customizable serums tailored to your needs.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Microneedling',
+                    price: '$125',
+                    description: 'Rejuvenate your skin with Microneedling, a minimally invasive treatment that stimulates collagen production to improve texture and firmness. Using fine needles, this procedure creates micro-channels to enhance product absorption and reduce the appearance of scars, wrinkles, and enlarged pores.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Certified Dope Facial Treatment',
+                    price: '$200',
+                    description: 'Indulge in the ultimate facial experience designed to melt away tension and restore your skin\'s natural balance. This comprehensive treatment includes dermaplaning to gently exfoliate, deluxe facial cupping to boost circulation, CBD nano-infusion with microcurrent to enhance product absorption, and a soothing CBD tension relief massage.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Cell Story Liquid Microneedling',
+                    price: '$200 (1) / $800 (4)',
+                    description: 'Experience the transformative power of Cell Story Liquid Microneedling, non-invasive treatment that stimulates your skin\'s natural regeneration process. Using advanced technology, this treatment delivers active ingredients deep into the skin to improve texture, reduce fine lines, and promote a youthful glow.',
+                    category: 'facials'
+                },
+                {
+                    name: 'Skin-Vigorate Package',
+                    price: '$1,250',
+                    description: 'Revitalize your skin with our Skin-Vigorate Package, a curated series of treatments for maximum rejuvenation. This package includes two Oxy-Facial treatments with LED, two Certified Dope Facials, two BioRePeel treatments, and two Cell Story Liquid Microneedling sessions.',
+                    category: 'packages'
+                }
+            ];
+
+            // Render Treatments
+            function renderTreatments() {
+                const accordion = document.querySelector('.treatment-accordion');
+                const categories = [...new Set(treatments.map(t => t.category))];
+                const categoryNames = {
+                    'facials': 'Facials',
+                    'peels': 'Peels',
+                    'lash-brow': 'Lash & Brow',
+                    'packages': 'Packages'
+                };
+
+                accordion.innerHTML = categories.map(category => `
+                    <div class="accordion-item">
+                        <button class="accordion-header">${categoryNames[category] || category} <i class="fas fa-chevron-down"></i></button>
+                        <div class="accordion-content">
+                            ${treatments.filter(t => t.category === category).map(treatment => `
+                                <div class="treatment-item">
+                                    <h4>${treatment.name}</h4>
+                                    <p>${treatment.description}</p>
+                                    <a href="#booking" class="book-btn">Book Now</a>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Updated Policy Data
+            const policies = [
+                {
+                    title: 'Cancellation Policy',
+                    content: 'We kindly request a minimum of 24 hours\' notice for appointment cancellations. This allows us to accommodate other clients. Late cancellations or no-shows may incur a fee.'
+                },
+                {
+                    title: 'Right to Refuse Service',
+                    content: 'Muse Aesthetic Studio reserves the right to refuse service to any client at our discretion, ensuring a safe and respectful environment for our staff and other clients.',
+                    disclosure: 'Service may be refused due to inappropriate behavior, non-compliance with health and safety protocols, or conditions that pose a risk to staff or clients. No refunds will be issued for services denied under this policy, and clients may be asked to leave the premises.'
+                },
+                {
+                    title: 'Initial Consultation Requirement',
+                    content: 'All new clients (excluding lash service clients) are required to have an initial consultation prior to receiving services. This helps us tailor treatments to your unique needs and ensures the best possible experience.',
+                    disclosure: 'The initial consultation is mandatory to assess skin conditions and medical history. Failure to complete the consultation may result in delayed or canceled services without refund. Consultations are complimentary but require scheduling in advance.'
+                },
+                {
+                    title: 'Good Faith Exam for Medical Services',
+                    content: 'For all medical services, clients must complete a "Good Faith Exam" with our Medical Director prior to treatment. This ensures your safety and compliance with medical standards.',
+                    disclosure: 'The Good Faith Exam is a legal requirement for medical treatments like microneedling, dermaplaning or peels. If a client is deemed unsuitable for treatment based on the exam, no service will be provided, and pre-paid fees may be credited toward alternative services at our discretion.'
+                },
+                {
+                    title: 'Missed Membership Treatments',
+                    content: 'If a member misses a month of treatment, there is a 30-day grace period to schedule a make-up session. Please contact us promptly to reschedule within this window to avoid forfeiting the session.'
+                },
+                {
+                    title: 'Pre-Paid Services Expiration',
+                    content: 'All pre-paid services have a 1-year expiration from the date of purchase. We encourage you to schedule your treatments within this timeframe to fully enjoy your benefits.',
+                    disclosure: 'Expired pre-paid services are non-refundable and cannot be redeemed or transferred. Clients will be notified 30 days prior to expiration as a courtesy, but it is the client’s responsibility to schedule services within the 1-year period.'
+                },
+                {
+                    title: 'Post-Treatment Care Instructions',
+                    content: `
+                        <ul>
+                            <li><strong>Avoid Sun Exposure:</strong> Protect your skin from direct sunlight for at least 48 hours post-treatment. Use a broad-spectrum sunscreen with SPF 30 or higher if sun exposure cannot be avoided.</li>
+                            <li><strong>Keep Skin Hydrated:</strong> Drink plenty of water to keep your skin hydrated from the inside out. Apply a gentle, non-comedogenic moisturizer to the treated area as needed to prevent dryness and promote healing.</li>
+                            <li><strong>Avoid Harsh Products:</strong> Refrain from using harsh skincare products, exfoliants, or abrasive scrubs on the treated area for at least one week post-treatment. Stick to gentle, non-irritating skincare products to avoid irritation or inflammation.</li>
+                            <li><strong>Avoid Touching or Picking:</strong> Resist the urge to touch or pick at the treated area to prevent infection or scarring. Let your skin heal naturally without interference.</li>
+                            <li><strong>Follow Specific Instructions:</strong> If your skincare provider provided specific post-treatment instructions or recommendations, follow them carefully to optimize results and minimize any potential complications.</li>
+                            <li><strong>Stay Cool:</strong> Avoid activities that may cause excessive sweating or heat exposure, such as strenuous exercise, saunas, or hot tubs, for at least 48 hours post-treatment. Heat can exacerbate inflammation and irritation.</li>
+                            <li><strong>Monitor for Side Effects:</strong> Keep an eye out for any unusual or adverse reactions, such as excessive redness, swelling, itching, or blistering. If you experience any concerning symptoms, contact your skincare provider immediately.</li>
+                            <li><strong>Follow-Up Appointment:</strong> Schedule a follow-up appointment with your skincare provider as recommended to assess treatment outcomes, address any concerns, and determine if additional sessions are needed.</li>
+                        </ul>
+                    `
+                }
+            ];
+
+            // Render Policies
+            function renderPolicies() {
+                const container = document.querySelector('.policies-container');
+                container.innerHTML = policies.map(policy => `
+                    <div class="policy-item">
+                        <button class="policy-header">${policy.title} <i class="fas fa-chevron-down"></i></button>
+                        <div class="policy-content">
+                            <p>${policy.content}</p>
+                            ${policy.disclosure ? `<p><strong>Disclosure:</strong> ${policy.disclosure}</p>` : ''}
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            // Accordion Functionality
+            function initializeAccordions() {
+                const headers = document.querySelectorAll('.accordion-header, .policy-header');
+                headers.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const content = button.nextElementSibling;
+                        const isActive = content.classList.contains('active');
+
+                        // Close all accordions
+                        document.querySelectorAll('.accordion-content, .policy-content').forEach(item => {
+                            item.classList.remove('active');
+                            item.style.maxHeight = null;
+                        });
+                        document.querySelectorAll('.accordion-header, .policy-header').forEach(item => {
+                            item.classList.remove('active');
+                        });
+
+                        // Toggle current accordion
+                        if (!isActive) {
+                            content.classList.add('active');
+                            button.classList.add('active');
+                            content.style.maxHeight = content.scrollHeight + 'px';
+                        }
+                    });
+                });
+            }
+
+            // Populate Product Cards
+            const productGrid = document.querySelector('.product-grid');
+            if (productGrid) {
+                // Pop-up Modal Functionality for video
+                const modalTriggers = document.querySelectorAll('.product-video, .buy-btn');
+                const modals = document.querySelectorAll('.modal');
+                const closeButtons = document.querySelectorAll('.close-btn');
+
+                modalTriggers.forEach(trigger => {
+                    trigger.addEventListener('click', function() {
+                        const modalId = this.getAttribute('data-modal');
+                        const modal = document.getElementById(modalId);
+                        if (modal) {
+                            modal.style.display = 'flex';
+                            document.body.style.overflow = 'hidden'; // Prevent scrolling
+                        }
+                    });
+                });
+
+                closeButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        const modal = this.closest('.modal');
+                        if (modal) {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto'; // Restore scrolling
+                        }
+                    });
+                });
+
+                // Close modal when clicking outside
+                modals.forEach(modal => {
+                    modal.addEventListener('click', function(e) {
+                        if (e.target === modal) {
+                            modal.style.display = 'none';
+                            document.body.style.overflow = 'auto'; // Restore scrolling
+                        }
+                    });
+                });
+            }
+
+            // Sparkle Animation for Mission Section
+            const sparkleContainer = document.getElementById('sparkles');
+            if (sparkleContainer) {
+                for (let i = 0; i < 25; i++) {
+                    const sparkle = document.createElement('div');
+                    sparkle.className = 'sparkle';
+                    sparkle.style.left = `${Math.random() * 100}%`;
+                    sparkle.style.top = `${Math.random() * 100}%`;
+                    sparkle.style.animationDelay = `${Math.random() * 5}s`;
+                    sparkleContainer.appendChild(sparkle);
+                }
+            }
+
+            // Vagaro Booking Integration
+            const vagaroButton = document.getElementById('vagaro-booking');
+            if (vagaroButton) {
+                vagaroButton.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    alert('Vagaro scheduling integration will be implemented once account details are provided.');
+                });
+            }
+
+            // Intersection Observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            // Initialize
+            renderTreatments();
+            renderPolicies();
+            initializeAccordions();
+
+            // Observe elements for animation
+            document.querySelectorAll('.accordion-item, .product-card, .policy-item, .contact-item').forEach(item => {
+                observer.observe(item);
+            });
+        });
+    </script>
+</body>
+</html>

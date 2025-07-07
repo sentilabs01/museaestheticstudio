@@ -18,13 +18,9 @@ export default function Policies() {
       ),
     },
     {
-      title: "Pre-Paid Services Expiration",
-      content: (
-        <span>
-          All pre-paid services have a <b>1-year expiration</b> from the date of purchase. We encourage you to schedule your treatments within this timeframe to fully enjoy your benefits.<br /><br />
-          <b>Disclosure:</b> Expired pre-paid services are non-refundable and cannot be redeemed or transferred. Clients will be notified 30 days prior to expiration as a courtesy, but it is the client&apos;s responsibility to schedule services within the 1-year period.
-        </span>
-      ),
+      title: "Refund Policy",
+      content:
+        "We strive for your complete satisfaction. If you're not happy with our services, please let us know within 7 days and we'll work to make it right.",
     },
     {
       title: "Missed Membership Treatments",
@@ -64,7 +60,7 @@ export default function Policies() {
   ];
 
   return (
-    <section id="policies" className="px-4 py-24 bg-white dark:bg-black border-b-2 border-pink-300 shadow-md">
+    <section id="policies" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black border-b-2 border-pink-300 shadow-md">
       <div className="container mx-auto">
         <div className="mx-auto max-w-3xl">
           <h2 className="mb-8 text-center text-4xl font-extrabold text-[#182D20] dark:text-pink-200" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>

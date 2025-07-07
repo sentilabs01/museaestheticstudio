@@ -1,7 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { ThemeToggle } from '../ThemeToggle'
+import Link from 'next/link'
+import { ThemeToggle } from "../ThemeToggle"
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)

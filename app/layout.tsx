@@ -4,41 +4,37 @@ import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { SparkleOverlay } from "../components/sections/SparkleOverlay";
-import { ThemeProvider } from "../components/ThemeProvider";
+import { ThemeProvider } from "@/components/ThemeProvider";
+import ThemeToggle from "../ui/ThemeToggle";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Muse Aesthetic Studio",
+  title: "Premium Aesthetic Services",
   description: "Discover our range of premium aesthetic services designed to rejuvenate and enhance your natural beauty.",
   icons: {
     icon: [
       {
-        url: 'https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png',
-        href: 'https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png',
+        url: '/favicon.png',
+        href: '/favicon.png',
       }
     ],
     apple: [
       {
-        url: 'https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png',
-        href: 'https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png',
+        url: '/favicon.png',
+        href: '/favicon.png',
       }
     ]
   }
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="bg-white dark:bg-black m-0 p-0" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="https://muse2025.s3.us-east-1.amazonaws.com/Copy+of+Copy+of+Grey+and+Black+Minimalist+Simple+Modern+Gaze+Creative+Studio+Logo.png" />
-        <link href="https://api.fontshare.com/v2/css?f[]=tt-drugs@400,500,700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.png" />
       </head>
-      <body className={inter.className}>
+      <body className="bg-white dark:bg-black m-0 p-0">
         <ThemeProvider>
           <SparkleOverlay />
           <Header />

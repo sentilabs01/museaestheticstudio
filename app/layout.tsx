@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { SparkleOverlay } from "../components/sections/SparkleOverlay";
 import { ThemeProvider } from "@/components/ThemeProvider";
-import ThemeToggle from "../ui/ThemeToggle";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Premium Aesthetic Services",

@@ -1,9 +1,8 @@
 import Link from "next/link";
 
-// @ts-ignore
 declare global {
   interface Window {
-    Vagaro?: any;
+    Vagaro?: unknown;
   }
 }
 

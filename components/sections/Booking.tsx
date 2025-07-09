@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { Button } from "../ui/button";
 
@@ -14,8 +14,9 @@ export default function Booking() {
           </p>
           <Button
             onClick={() => {
-              if (window.Vagaro && typeof window.Vagaro.WidgetPopup === 'function') {
-                window.Vagaro.WidgetPopup();
+              const vagaro = window.Vagaro as { WidgetPopup?: () => void };
+              if (vagaro && typeof vagaro.WidgetPopup === 'function') {
+                vagaro.WidgetPopup();
               } else {
                 window.open('https://www.vagaro.com/museaestheticstudio/book-now', '_blank');
               }

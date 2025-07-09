@@ -1,5 +1,6 @@
 'use client'
 import { useState } from "react";
+import Image from "next/image";
 
 export default function Products() {
   const images = [
@@ -37,10 +38,13 @@ export default function Products() {
           <button onClick={prev} aria-label="Previous" className="absolute left-0 z-10 h-full px-4 text-3xl font-bold text-[#2D4432] dark:text-[#F7D6ED] bg-white/70 dark:bg-black/80 hover:bg-[#F7D6ED]/80 dark:hover:bg-black/80 transition rounded-l-lg">
             &#8592;
           </button>
-          <img
+          <Image
             src={images[current].src}
             alt={images[current].alt}
+            width={1000}
+            height={500}
             className="w-full max-w-5xl h-[500px] object-contain rounded-xl shadow-xl bg-transparent p-0"
+            priority
           />
           <button onClick={next} aria-label="Next" className="absolute right-0 z-10 h-full px-4 text-3xl font-bold text-[#2D4432] dark:text-[#F7D6ED] bg-white/70 dark:bg-black/80 hover:bg-[#F7D6ED]/80 dark:hover:bg-black/80 transition rounded-r-lg">
             &#8594;

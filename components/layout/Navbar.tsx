@@ -28,7 +28,7 @@ export default function Navbar() {
                 className="rounded-full bg-black px-6 py-2 text-white transition-colors hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
               >
                 {item.label}
-              </a>
+              </Link>
             ) : (
               <Link
                 href={item.href}

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
 import { ThemeToggle } from "../ThemeToggle"
 
 export default function Header() {
@@ -23,7 +22,7 @@ export default function Header() {
             <div className="hidden sm:block">
               <div className="flex space-x-8">
                 <button
-                  onClick={() => scrollToSection('pricing')}
+                  onClick={() => scrollToSection('treatments')}
                   className="text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-sm font-medium"
                 >
                   Treatments
@@ -92,7 +91,7 @@ export default function Header() {
           <div className="sm:hidden">
             <div className="px-2 pt-2 pb-3 space-y-1">
               <button
-                onClick={() => scrollToSection('pricing')}
+                onClick={() => scrollToSection('treatments')}
                 className="block text-[#182D20] dark:text-neutral-200 hover:text-[#2A4A30] dark:hover:text-white px-3 py-2 text-base font-medium"
               >
                 Treatments
@@ -133,4 +132,4 @@ export default function Header() {
       </nav>
     </header>
   )
-} 
+}

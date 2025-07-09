@@ -5,6 +5,7 @@ import Pricing from "../components/sections/Pricing";
 import Mission from "../components/sections/Mission";
 import Logo from "../components/sections/Logo";
 import Policies from "../components/sections/Policies";
+import Image from "next/image";
 
 // NoiseDemo component for SplashCursor
 // export function NoiseDemo() {
@@ -19,10 +20,13 @@ export default function Home() {
       <Mission />
       {/* Meet Our Team Image Section - moved directly below Mission */}
       <section id="meet-our-team" className="pt-8 pb-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black flex justify-center">
-        <img
+        <Image
           src="https://muse2025.s3.us-east-1.amazonaws.com/meet+our.png"
           alt="Meet Our Team"
+          width={1200}
+          height={400}
           className="object-contain rounded-xl shadow-none bg-white dark:bg-black w-full max-w-4xl"
+          priority
         />
       </section>
       {/* Intro video below Mission */}

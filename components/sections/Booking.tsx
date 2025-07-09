@@ -22,7 +22,7 @@ export default function Booking() {
             }}
           >
             Schedule Now
-          </button>
+          </Button>
         </div>
       </div>
     </section>

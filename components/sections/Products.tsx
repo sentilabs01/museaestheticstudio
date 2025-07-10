@@ -1,31 +1,7 @@
 'use client'
 import { useState } from "react";
-import Image from "next/image";
 
 export default function Products() {
-  const images = [
-    {
-      src: "https://muse2025.s3.us-east-1.amazonaws.com/biorepeel.png",
-      alt: "BioRePeel"
-    },
-    {
-      src: "https://muse2025.s3.us-east-1.amazonaws.com/cellstory.png",
-      alt: "Cellstory"
-    },
-    {
-      src: "https://muse2025.s3.us-east-1.amazonaws.com/glymed.png",
-      alt: "Glymed"
-    },
-    {
-      src: "https://muse2025.s3.us-east-1.amazonaws.com/skinscript.png",
-      alt: "Skin Script"
-    }
-  ];
-  const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((current - 1 + images.length) % images.length);
-  const next = () => setCurrent((current + 1) % images.length);
-
   return (
     <section id="products" className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black">
       <div className="max-w-7xl mx-auto">

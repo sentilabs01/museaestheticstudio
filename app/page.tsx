@@ -1,5 +1,5 @@
 import { SplashCursor } from "../components/ui/splash-cursor";
-import TreatmentsAccordion from "../components/sections/TreatmentsAccordion";
+import Treatments from "../components/sections/Treatments";
 import Products from "../components/sections/Products";
 import Pricing from "../components/sections/Pricing";
 import Mission from "../components/sections/Mission";
@@ -21,7 +21,7 @@ export default function Home() {
       {/* Meet Our Team Image Section - moved directly below Mission */}
       <section id="meet-our-team" className="pt-8 pb-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black flex justify-center">
         <Image
-          src="https://muse2025.s3.us-east-1.amazonaws.com/meet+our.png"
+          src="https://muse2025.s3.us-east-1.amazonaws.com/Squad.png"
           alt="Meet Our Team"
           width={1200}
           height={400}
@@ -45,7 +45,7 @@ export default function Home() {
         */}
       </div>
       {/* Our Treatments section - unified, full list */}
-      <TreatmentsAccordion />
+      <Treatments />
       <div id="pricing">
         <Pricing />
       </div>

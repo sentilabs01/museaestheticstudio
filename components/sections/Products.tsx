@@ -34,31 +34,20 @@ export default function Products() {
             Featured Products
           </h2>
         </div>
-        <div className="relative w-full flex justify-center items-center bg-white dark:bg-black">
-          <button onClick={prev} aria-label="Previous" className="absolute left-0 z-10 h-full px-4 text-3xl font-bold text-[#2D4432] dark:text-[#F7D6ED] bg-white/70 dark:bg-black/80 hover:bg-[#F7D6ED]/80 dark:hover:bg-black/80 transition rounded-l-lg">
-            &#8592;
-          </button>
-          <Image
-            src={images[current].src}
-            alt={images[current].alt}
-            width={1000}
-            height={500}
-            className="w-full max-w-5xl h-[500px] object-contain rounded-xl shadow-xl bg-transparent p-0"
-            priority
-          />
-          <button onClick={next} aria-label="Next" className="absolute right-0 z-10 h-full px-4 text-3xl font-bold text-[#2D4432] dark:text-[#F7D6ED] bg-white/70 dark:bg-black/80 hover:bg-[#F7D6ED]/80 dark:hover:bg-black/80 transition rounded-r-lg">
-            &#8594;
-          </button>
-        </div>
-        <div className="flex justify-center mt-4 gap-2">
-          {images.map((img, idx) => (
-            <button
-              key={img.alt}
-              onClick={() => setCurrent(idx)}
-              className={`w-3 h-3 rounded-full border-2 ${current === idx ? 'bg-[#2D4432] border-[#2D4432] dark:bg-[#F7D6ED] dark:border-[#F7D6ED]' : 'bg-white border-[#2D4432] dark:bg-black dark:border-[#2D4432]'}`}
-              aria-label={`Go to ${img.alt}`}
-            />
-          ))}
+        <div className="w-full flex justify-center items-center bg-white dark:bg-black">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            width={900}
+            height={300}
+            className="object-contain rounded-xl shadow-xl bg-transparent w-full max-w-2xl"
+            style={{ background: 'transparent' }}
+          >
+            <source src="https://muse2025.s3.us-east-1.amazonaws.com/product+slide+show.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>

@@ -23,7 +23,7 @@ export default function Policies() {
         <ul className="list-disc pl-6 space-y-2">
           <li><b>Product Exchanges:</b> Products may be exchanged for an item of equal value within 30 days of initial purchase.</li>
           <li><b>Service Refunds:</b> Refunds for services may be granted within 7 business days, subject to review and at our discretion.</li>
-          <li><b>Medical Exceptions:</b> If a pre-purchased service cannot be performed due to a medical condition or concern, a credit will be issued toward an alternative service that is safe and appropriate for the client's needs.</li>
+          <li><b>Medical Exceptions:</b> If a pre-purchased service cannot be performed due to a medical condition or concern, a credit will be issued toward an alternative service that is safe and appropriate for the client&apos;s needs.</li>
           <li><b>Memberships:</b> All membership dues are non-refundable.</li>
         </ul>
       ),

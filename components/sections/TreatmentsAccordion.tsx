@@ -4,115 +4,157 @@ import * as React from "react";
 
 const treatments = [
 	{
+		name: "New Client Consultation",
+		price: "$0.00",
+		description:
+			"The New Client Consultation provides a comprehensive evaluation of your unique skincare needs and concerns. You will receive personalized recommendations and a tailored plan designed to enhance your skin's health and radiance.",
+		category: "facials",
+	},
+	{
 		name: "Express Facial",
-		price: "$120",
+		price: "$110.00",
 		description:
-			"Short on time? Our Express Facial delivers a quick yet effective refresh. This 60-minute treatment includes a thorough cleanse, light exfoliation, and an enzyme mask, leaving your skin glowing and revitalized—ideal for a busy schedule.",
+			"The Express Facial provides a rejuvenating experience in just 60 minutes, including a thorough cleanse, gentle microdermabrasion, and a revitalizing enzyme mask. Ideal for busy lifestyles, this treatment refreshes your skin, leaving it glowing and revitalized!",
 		category: "facials",
 	},
 	{
-		name: "Oxy-Facial with LED",
-		price: "$135",
+		name: "Dermaplaning Facial",
+		price: "$135.00",
 		description:
-			"Boost your skin's hydration with our Oxy-Facial, enhanced by LED light therapy. This treatment infuses your skin with oxygen and nourishing serums, while LED therapy targets concerns like redness or dullness, leaving your complexion radiant and refreshed.",
+			"Reveal smoother, brighter skin with our Dermaplane Facial. This treatment gently removes dead skin cells and peach fuzz through dermaplaning, followed by an enzyme mask. Perfect for a polished, glowing look!",
 		category: "facials",
 	},
 	{
-		name: "Dermaplane Facial",
-		price: "$135",
+		name: "Oxy Facial",
+		price: "$135.00",
 		description:
-			"Reveal smoother, brighter skin with our Dermaplane Facial. This treatment gently removes dead skin cells and peach fuzz through dermaplaning, followed by an enzyme mask. Perfect for a polished, glowing look.",
-		category: "facials",
-	},
-	{
-		name: "Hydro-Facial with LED",
-		price: "$145",
-		description:
-			"Deeply cleanse and hydrate with our Hydro-Facial, featuring hydrodermabrasion to exfoliate and extract impurities, paired with LED light therapy to enhance skin clarity. This treatment leaves your skin plump, dewy, and rejuvenated.",
+			"Boost your skin's hydration with our Oxy-Facial, enhanced by LED light therapy. This treatment infuses your skin with oxygen and nourishing serums, while LED therapy targets concerns like redness or dullness, leaving your complexion radiant and refreshed!",
 		category: "facials",
 	},
 	{
 		name: "Chemical Peel",
-		price: "$99-$125",
+		price: "Starting at $99.00",
 		description:
-			"Address specific skin concerns with a customized Chemical Peel. This treatment exfoliates the outer layer of skin to improve texture, reduce pigmentation, and promote cell turnover. Pricing varies based on the peel intensity, tailored to your needs.",
-		category: "peels",
+			"Address specific skin concerns with a customized Chemical Peel. This treatment exfoliates the outer layer of skin to improve texture, reduce pigmentation, and promote cell turnover, leaving your skin glowing, hydrated & healthy!",
+		category: "facials",
 	},
 	{
-		name: "Body Peel",
-		price: "$99-$250",
+		name: "Hydro-Facial",
+		price: "$145.00",
 		description:
-			"Extend the benefits of a chemical peel to your body. Our Body Peel targets areas like the back, arms, or legs to improve texture, reduce hyperpigmentation, and smooth rough skin. Pricing depends on the treatment area and peel strength.",
-		category: "peels",
+			"Deeply cleanse and hydrate with our Hydro-Facial, featuring hydrodermabrasion to exfoliate and extract impurities, paired with LED light therapy to enhance skin clarity. This treatment leaves your skin plump, dewy, and rejuvenated!",
+		category: "facials",
 	},
 	{
-		name: "BioRePeel",
-		price: "$150-$500",
+		name: "Nano-Infusion Treatment",
+		price: "$150.00",
 		description:
-			"Experience the next level of skin rejuvenation with BioRePeel, a powerful yet gentle peel that combines exfoliation with biostimulation. This treatment reduces fine lines, improves skin tone, and enhances elasticity, with pricing based on the number of sessions and areas treated.",
-		category: "peels",
+			"Elevate your skincare with our Nano-Infusion Treatment, a cutting-edge procedure that uses nano-technology to deliver potent serums deep into the skin. This non-invasive treatment enhances hydration, improves fine lines, and boosts overall skin health, with customizable serums tailored to your needs.",
+		category: "facials",
+	},
+	{
+		name: "Certified Dope Facial",
+		price: "$225.00",
+		description:
+			"Indulge in the ultimate facial experience designed to melt away tension and restore your skin's natural balance. This comprehensive treatment includes dermaplaning to gently exfoliate, deluxe facial cupping to boost circulation, CBD nano-infusion with microcurrent to enhance product absorption, and a soothing CBD tension relief massage! Prepare to feel completely renewed!",
+		category: "facials",
+	},
+	{
+		name: "BioRePeel Treatment",
+		price: "$150.00",
+		description:
+			"Advanced Exfoliation - BioRePeel Treatment utilizes innovative exfoliation methods alongside bio-stimulation to enhance skin rejuvenation, significantly boosting collagen production while refining texture and tone. This state-of-the-art treatment delivers a refreshed and radiant complexion, perfect for those seeking to achieve a youthful, glowing appearance.",
+		category: "facials",
+	},
+	{
+		name: "Microneedling",
+		price: "$225.00",
+		description:
+			"Rejuvenate your skin with Microneedling, a minimally invasive treatment that stimulates collagen production to improve texture and firmness. Using fine needles, this procedure creates micro-channels to enhance product absorption and reduce the appearance of scars, wrinkles, and enlarged pores!",
+		category: "facials",
+	},
+	{
+		name: "Cell Story Liquid Microneedling",
+		price: "$225.00",
+		description:
+			"Cell Story Liquid Microneedling is a revolutionary non-invasive facial treatment that utilizes advanced technology to stimulate the skin's natural regeneration processes. By delivering active ingredients deep into the skin, it improves texture, diminishes fine lines, and promotes a radiant, youthful complexion, effectively revitalizing your skin's appearance!",
+		category: "facials",
 	},
 	{
 		name: "Lash Lift & Tint",
 		price: "$125",
 		description:
 			"Enhance your natural lashes with our Lash Lift & Tint. This treatment lifts and curls your lashes for a wide-eyed look, while a tint adds depth and definition, eliminating the need for mascara. Enjoy long-lasting results for up to 6-8 weeks.",
-		category: "lash-brow",
+		category: "lash-body",
 	},
 	{
 		name: "Brow Lamination",
 		price: "$80",
 		description:
 			"Achieve perfectly shaped brows with Brow Lamination. This treatment smooths and sets your brow hairs in place, creating a fuller, more defined look that lasts up to 6 weeks. Ideal for taming unruly brows or enhancing sparse ones.",
-		category: "lash-brow",
+		category: "lash-body",
 	},
 	{
 		name: "Lash Lift & Tint with Brow Lamination",
 		price: "$195",
 		description:
 			"Combine the best of both worlds with our Lash Lift & Tint and Brow Lamination package. Lift and tint your lashes for a dramatic effect, while laminating your brows for a polished, sculpted look. Save time and enhance your features in one session.",
-		category: "lash-brow",
+		category: "lash-body",
 	},
 	{
-		name: "Nano-Infusion Treatment",
-		price: "$150-$500",
-		description:
-			"Elevate your skincare with our Nano-Infusion Treatment, a cutting-edge procedure that uses nano-technology to deliver potent serums deep into the skin. This non-invasive treatment enhances hydration, improves fine lines, and boosts overall skin health, with customizable serums tailored to your needs.",
-		category: "facials",
+		name: "Body Treatments - Body Peel (small area)",
+		price: "$99.00",
+		description: "Achieve smoother, clearer skin with our Body Peel services, which deeply exfoliates and rejuvenates small area to large areas, removing dead skin cells effectively and brightening the skin.",
+		category: "lash-body",
 	},
 	{
-		name: "Microneedling",
-		price: "$225",
-		description:
-			"Rejuvenate your skin with Microneedling, a minimally invasive treatment that stimulates collagen production to improve texture and firmness. Using fine needles, this procedure creates micro-channels to enhance product absorption and reduce the appearance of scars, wrinkles, and enlarged pores.",
-		category: "facials",
+		name: "Body Treatments - Body Peel (medium area)",
+		price: "$175.00",
+		description: "Achieve smoother, clearer skin with our Body Peel services, which deeply exfoliates and rejuvenates small area to large areas, removing dead skin cells effectively and brightening the skin.",
+		category: "lash-body",
 	},
 	{
-		name: "Certified Dope Facial Treatment",
-		price: "$225",
-		description:
-			"Indulge in the ultimate facial experience designed to melt away tension and restore your skin's natural balance. This comprehensive treatment includes dermaplaning to gently exfoliate, deluxe facial cupping to boost circulation, CBD nano-infusion with microcurrent to enhance product absorption, and a soothing CBD tension relief massage.",
-		category: "facials",
+		name: "Body Treatments - Body Peel (large area)",
+		price: "$250.00",
+		description: "Achieve smoother, clearer skin with our Body Peel services, which deeply exfoliates and rejuvenates small area to large areas, removing dead skin cells effectively and brightening the skin.",
+		category: "lash-body",
 	},
 	{
-		name: "Cell Story Liquid Microneedling",
-		price: "$200 (1) / $800 (4)",
-		description:
-			"Experience the transformative power of Cell Story Liquid Microneedling, non-invasive treatment that stimulates your skin's natural regeneration process. Using advanced technology, this treatment delivers active ingredients deep into the skin to improve texture, reduce fine lines, and promote a youthful glow.",
-		category: "facials",
+		name: "Waxing - Brow Shaping",
+		price: "$20.00",
+		description: "Waxing Different parts of the face.",
+		category: "waxing",
+	},
+	{
+		name: "Waxing - Lips",
+		price: "$20.00",
+		description: "Waxing Different parts of the face.",
+		category: "waxing",
+	},
+	{
+		name: "Waxing - Chin",
+		price: "$20.00",
+		description: "Waxing Different parts of the face.",
+		category: "waxing",
+	},
+	{
+		name: "Waxing - Lip and Chin",
+		price: "$25.00",
+		description: "Waxing Different parts of the face.",
+		category: "waxing",
 	},
 	{
 		name: "Skin-Vigorate Package",
 		price: "$1,300",
-		description:
-			"Revitalize your skin with our Skin-Vigorate Package, a curated series of treatments for maximum rejuvenation. This package includes two Oxy-Facial treatments with LED, two Certified Dope Facials, two BioRePeel treatments, and two Cell Story Liquid Microneedling sessions.",
+		description: "Revitalize your skin with our Skin-Vigorate Package, a curated series of treatments for maximum rejuvenation. This package includes two Oxy-Facial treatments with LED, two Certified Dope Facials, two BioRePeel treatments, and two Cell Story Liquid Microneedling sessions.",
 		category: "packages",
 	},
 ];
 
 const categoryNames: Record<string, string> = {
 	facials: "Facials",
-	peels: "Peels",
+	"lash-body": "Lash & Body",
+	waxing: "Waxing",
 	"lash-brow": "Lash & Brow",
 	packages: "Packages",
 };

@@ -17,9 +17,22 @@ export default function Home() {
     <main className="min-h-screen bg-white relative">
       <SplashCursor />
       <Logo />
+      {/* Intro video above Mission */}
+      <div className="w-full flex justify-center items-center dark:bg-black">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="max-w-5xl w-full h-[500px] rounded-lg shadow-lg object-contain mx-auto"
+        >
+          <source src="https://muse2025.s3.us-east-1.amazonaws.com/Untitled+design.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
       <Mission />
       {/* Meet Our Team Image Section - moved directly below Mission */}
-      <section id="meet-our-team" className="pt-8 pb-8 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black flex justify-center">
+      <section id="meet-our-team" className="pt-8 pb-8 px-4 sm:px-6 lg:px-8 dark:bg-black flex justify-center">
         <Image
           src="https://muse2025.s3.us-east-1.amazonaws.com/Squad.png"
           alt="Meet Our Team"
@@ -29,21 +42,6 @@ export default function Home() {
           priority
         />
       </section>
-      {/* Intro video below Mission */}
-      <div className="w-full flex justify-center mt-8 mb-12 bg-white dark:bg-black">
-        {/*
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full max-w-5xl h-[500px] rounded-lg shadow-lg object-contain"
-        >
-          <source src="https://muse2025.s3.us-east-1.amazonaws.com/Untitled+design.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        */}
-      </div>
       {/* Our Treatments section - unified, full list */}
       <Treatments />
       <div id="pricing">

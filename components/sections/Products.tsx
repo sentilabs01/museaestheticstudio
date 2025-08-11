@@ -20,7 +20,7 @@ export default function Products() {
             className="object-contain rounded-xl shadow-xl bg-transparent w-full max-w-2xl"
             style={{ background: 'transparent' }}
           >
-            <source src="https://muse2025.s3.us-east-1.amazonaws.com/product+slide+show.mp4" type="video/mp4" />
+            <source src="https://muse2025.s3.us-east-1.amazonaws.com/Product+SKINCARE+SLIDESHOW+810.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>

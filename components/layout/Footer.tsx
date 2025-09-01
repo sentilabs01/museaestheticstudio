@@ -69,6 +69,9 @@ export default function Footer() {
                 <p>
                   Email: <a href="mailto:info@museaestheticstudio.com" className="hover:text-[#F7D6ED] dark:hover:text-[#F7D6ED]">info@museaestheticstudio.com</a>
                 </p>
+                <p>
+                  Facebook: <a href="https://www.facebook.com/profile.php?id=61577573458352" target="_blank" rel="noopener noreferrer" className="hover:text-[#F7D6ED] dark:hover:text-[#F7D6ED]">Facebook</a>
+                </p>
               </div>
             </div>
           </div>

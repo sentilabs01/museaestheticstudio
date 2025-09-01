@@ -40,7 +40,7 @@ export default function Pricing() {
 
         <div className="relative w-full h-[800px] max-w-7xl mx-auto rounded-lg overflow-hidden bg-transparent">
           <Image
-            src={showMembership ? "https://muse2025.s3.us-east-1.amazonaws.com/WHITEBKG+MEMBERPRICE.png" : "https://muse2025.s3.us-east-1.amazonaws.com/standalone2.0.png"}
+            src={showMembership ? "https://muse2025.s3.us-east-1.amazonaws.com/1.png" : "https://muse2025.s3.us-east-1.amazonaws.com/2.png"}
             alt={showMembership ? "Membership Pricing" : "Stand Alone Pricing"}
             fill
             className="object-contain transition-all duration-500 hover:scale-105 bg-transparent"

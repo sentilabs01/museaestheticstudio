@@ -15,38 +15,27 @@ export default function Footer() {
                   Location
                 </h3>
                 <p className="text-[#2D4432] dark:text-gray-300">
-                  Inside of Salon 12 Suites<br />
-                  6828 NE 14th St, Suite 2<br />
+                  202 SW Cherry St<br />
                   Ankeny, IA 50023
                 </p>
               </div>
 
               {/* Hours */}
-              <div className="mt-4">
-                <div className="font-bold text-lg text-[#182D20] dark:text-[#F7D6ED] mb-2">
+              <div className="mt-6">
+                <h3 className="text-lg font-semibold text-[#182D20] dark:text-[#F7D6ED] mb-4" style={{ fontFamily: 'TT Drugs, Inter, sans-serif', fontWeight: 800 }}>
                   Hours of Operation
-                </div>
-                <div className="text-[#2D4432] dark:text-gray-300">
-                  <div>By appointment</div>
-                  <table className="mt-2">
-                    <tbody>
-                      <tr><td>Sunday</td><td className="pl-4">Closed</td></tr>
-                      <tr><td>Monday</td><td className="pl-4">9:30 AM - 5:00 PM</td></tr>
-                      <tr><td>Tuesday</td><td className="pl-4">10:00 AM - 7:00 PM</td></tr>
-                      <tr><td>Wednesday</td><td className="pl-4">9:30 AM - 7:00 PM</td></tr>
-                      <tr><td>Thursday</td><td className="pl-4">Closed</td></tr>
-                      <tr><td>Friday</td><td className="pl-4">9:30 AM - 5:00 PM</td></tr>
-                      <tr><td>Saturday</td><td className="pl-4">By appointment only</td></tr>
-                    </tbody>
-                  </table>
-                </div>
+                </h3>
+                <p className="text-[#2D4432] dark:text-gray-300">
+                  Monday – Friday: By appointment<br />
+                  Saturday – Sunday: Closed
+                </p>
               </div>
             </div>
 
             {/* Google Maps Embed */}
             <div className="w-full h-64 rounded-lg overflow-hidden shadow-lg bg-[#F7D6ED] dark:bg-[#23272a]">
               <iframe
-                src="https://www.google.com/maps?q=6828+NE+14th+St,+Suite+2,+Ankeny,+IA+50023&output=embed"
+                src="https://www.google.com/maps?q=202+SW+Cherry+St,+Ankeny,+IA+50023&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

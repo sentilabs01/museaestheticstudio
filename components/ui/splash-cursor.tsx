@@ -53,7 +53,7 @@ export function SplashCursor({
       this.deltaY = 0;
       this.down = false;
       this.moved = false;
-      this.color = [0, 0, 0];
+      this.color = [0.8, 0.4, 0.6];
     }
 
     (pointerPrototype as unknown as PointerConstructor).prototype = Object.create(Object.prototype);
@@ -914,6 +914,7 @@ export function SplashCursor({
     let lastUpdateTime = Date.now();
     let colorUpdateTimer = 0.0;
 
+    let animationFrameId: number;
     function updateFrame() {
       const dt = calcDeltaTime();
       if (resizeCanvas()) initFramebuffers();
@@ -921,7 +922,7 @@ export function SplashCursor({
       applyInputs();
       step(dt);
       render(null);
-      requestAnimationFrame(updateFrame);
+      animationFrameId = requestAnimationFrame(updateFrame);
     }
 
     function calcDeltaTime() {
@@ -1200,7 +1201,7 @@ export function SplashCursor({
 
     function generateColor(): number[] {
       const c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      return [c.r * 0.15, c.g * 0.15, c.b * 0.15];
+      return [c.r * 0.85, c.g * 0.85, c.b * 0.85];
     }
 
     function HSVtoRGB(h: number, s: number, v: number) {
@@ -1276,51 +1277,25 @@ export function SplashCursor({
       return hash;
     }
 
-    window.addEventListener("mousedown", (e) => {
+    const handleMouseDown = (e: MouseEvent) => {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
       updatePointerDownData(pointer, -1, posX, posY);
       clickSplat(pointer);
-    });
+    };
 
-    document.body.addEventListener(
-      "mousemove",
-      function handleFirstMouseMove(e) {
-        const pointer = pointers[0];
-        const posX = scaleByPixelRatio(e.clientX);
-        const posY = scaleByPixelRatio(e.clientY);
-        const color = generateColor();
-        updateFrame(); // start animation loop
-        updatePointerMoveData(pointer, posX, posY, color);
-        document.body.removeEventListener("mousemove", handleFirstMouseMove);
-      }
-    );
-
-    window.addEventListener("mousemove", (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       const pointer = pointers[0];
       const posX = scaleByPixelRatio(e.clientX);
       const posY = scaleByPixelRatio(e.clientY);
-      const color = pointer.color;
-      updatePointerMoveData(pointer, posX, posY, color);
-    });
-
-    document.body.addEventListener(
-      "touchstart",
-      function handleFirstTouchStart(e) {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updateFrame(); // start animation loop
-          updatePointerDownData(pointer, touches[i].identifier, posX, posY);
-        }
-        document.body.removeEventListener("touchstart", handleFirstTouchStart);
+      if (!pointer.color || (pointer.color[0] === 0 && pointer.color[1] === 0 && pointer.color[2] === 0)) {
+        pointer.color = generateColor();
       }
-    );
+      updatePointerMoveData(pointer, posX, posY, pointer.color);
+    };
 
-    window.addEventListener("touchstart", (e) => {
+    const handleTouchStart = (e: TouchEvent) => {
       const touches = e.targetTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
@@ -1328,31 +1303,42 @@ export function SplashCursor({
         const posY = scaleByPixelRatio(touches[i].clientY);
         updatePointerDownData(pointer, touches[i].identifier, posX, posY);
       }
-    });
+    };
 
-    window.addEventListener(
-      "touchmove",
-      (e) => {
-        const touches = e.targetTouches;
-        const pointer = pointers[0];
-        for (let i = 0; i < touches.length; i++) {
-          const posX = scaleByPixelRatio(touches[i].clientX);
-          const posY = scaleByPixelRatio(touches[i].clientY);
-          updatePointerMoveData(pointer, posX, posY, pointer.color);
-        }
-      },
-      false
-    );
+    const handleTouchMove = (e: TouchEvent) => {
+      const touches = e.targetTouches;
+      const pointer = pointers[0];
+      for (let i = 0; i < touches.length; i++) {
+        const posX = scaleByPixelRatio(touches[i].clientX);
+        const posY = scaleByPixelRatio(touches[i].clientY);
+        updatePointerMoveData(pointer, posX, posY, pointer.color);
+      }
+    };
 
-    window.addEventListener("touchend", (e) => {
+    const handleTouchEnd = (e: TouchEvent) => {
       const touches = e.changedTouches;
       const pointer = pointers[0];
       for (let i = 0; i < touches.length; i++) {
         updatePointerUpData(pointer);
       }
-    });
+    };
+
+    window.addEventListener("mousedown", handleMouseDown);
+    window.addEventListener("mousemove", handleMouseMove);
+    window.addEventListener("touchstart", handleTouchStart, { passive: true });
+    window.addEventListener("touchmove", handleTouchMove, { passive: true });
+    window.addEventListener("touchend", handleTouchEnd, { passive: true });
 
     updateFrame();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("mousedown", handleMouseDown);
+      window.removeEventListener("mousemove", handleMouseMove);
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchmove", handleTouchMove);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
   }, [
     SIM_RESOLUTION,
     DYE_RESOLUTION,
@@ -1366,7 +1352,9 @@ export function SplashCursor({
     SPLAT_FORCE,
     SHADING,
     COLOR_UPDATE_SPEED,
-    BACK_COLOR,
+    BACK_COLOR.r,
+    BACK_COLOR.g,
+    BACK_COLOR.b,
     TRANSPARENT,
   ]);
 
@@ -1377,8 +1365,8 @@ export function SplashCursor({
         position: 'fixed',
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
+        width: '100vw',
+        height: '100vh',
         pointerEvents: 'none',
         zIndex: 9999,
       }}

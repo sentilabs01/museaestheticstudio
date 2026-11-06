@@ -38,14 +38,33 @@ export default function Pricing() {
           </div>
         </div>
 
-        <div className="relative w-full h-[800px] max-w-7xl mx-auto rounded-lg overflow-hidden bg-transparent">
-          <Image
-            src={showMembership ? "https://muse2025.s3.us-east-1.amazonaws.com/1.png" : "https://muse2025.s3.us-east-1.amazonaws.com/PriceList6.7.26.png"}
-            alt={showMembership ? "Membership Pricing" : "Stand Alone Pricing"}
-            fill
-            className="object-contain transition-all duration-500 hover:scale-105 bg-transparent"
-            priority
-          />
+        <div className="relative w-full h-[850px] max-w-7xl mx-auto rounded-lg overflow-hidden bg-transparent">
+          <div
+            className={`absolute inset-0 transition-opacity duration-300 ${
+              !showMembership ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+            }`}
+          >
+            <Image
+              src="https://muse2025.s3.us-east-1.amazonaws.com/PriceList_Oct2026.png"
+              alt="Stand Alone Pricing"
+              fill
+              className="object-contain transition-all duration-500 hover:scale-105 bg-transparent"
+              priority
+            />
+          </div>
+          <div
+            className={`absolute inset-0 transition-opacity duration-300 ${
+              showMembership ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+            }`}
+          >
+            <Image
+              src="https://muse2025.s3.us-east-1.amazonaws.com/MembershipPricing_Oct2026.png"
+              alt="Membership Pricing"
+              fill
+              className="object-contain transition-all duration-500 hover:scale-105 bg-transparent"
+              priority
+            />
+          </div>
         </div>
         <div className="flex justify-center mt-8">
           <a
